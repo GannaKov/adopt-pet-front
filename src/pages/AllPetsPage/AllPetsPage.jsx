@@ -5,8 +5,8 @@ import { getLimitedAnimals } from "../../services/requests";
 import { Link } from "react-router-dom";
 
 const AllPetsPage = () => {
-  const [animalsLimitedObj, setAnimalsLimitedObj] = useState({});
   const navigate = useNavigate();
+  const [animalsLimitedObj, setAnimalsLimitedObj] = useState({});
 
   useEffect(() => {
     getLimitedAnimals()

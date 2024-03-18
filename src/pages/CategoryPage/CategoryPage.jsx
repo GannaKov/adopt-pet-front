@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
 import styles from "./CategoryPage.module.css";
 import { useEffect, useState } from "react";
 import { getByType } from "../../services/requests";
 import notFound from "../../assets/images/no_found.jpg";
 
 const CategoryPage = () => {
+  const navigate = useNavigate();
   const { pet_type } = useParams();
   const [animalsArr, setAnimalsArr] = useState(null);
   const [error, setError] = useState();
@@ -20,6 +22,9 @@ const CategoryPage = () => {
 
   return (
     <div>
+      <button type="button" onClick={() => navigate(-1)}>
+        &larr; Go Back
+      </button>
       {error === 404 && (
         <>
           {" "}
