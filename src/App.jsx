@@ -20,6 +20,7 @@ const router = createBrowserRouter(
         {
           path: "/animals",
           // Component: UsersPage,
+
           children: [
             { index: true, element: <AllPetsPage /> },
             {
