@@ -14,3 +14,9 @@ export const getLimitedAnimals = async () => {
   console.log(data);
   return data;
 };
+
+export const getByType = async (type) => {
+  const { data } = await instance.get(`/animals/${type}`);
+  console.log(data);
+  return data;
+};

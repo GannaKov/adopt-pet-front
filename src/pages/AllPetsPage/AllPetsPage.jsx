@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./AllPetsPage.module.css";
 import { getLimitedAnimals } from "../../services/requests";
 import { Link } from "react-router-dom";
 
 const AllPetsPage = () => {
   const [animalsLimitedObj, setAnimalsLimitedObj] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     getLimitedAnimals()
@@ -28,7 +30,9 @@ const AllPetsPage = () => {
                 </li>
               ))}
             </ul>
-            <button type="button">See more</button>
+            <button type="button" onClick={() => navigate(`/animals/${type}`)}>
+              See more
+            </button>
           </div>
         ))}
     </div>
