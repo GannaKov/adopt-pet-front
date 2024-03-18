@@ -8,3 +8,9 @@ export const getCategories = async () => {
   const { data } = await instance.get();
   return data;
 };
+
+export const getLimitedAnimals = async () => {
+  const { data } = await instance.get("/animals");
+  console.log(data);
+  return data;
+};
