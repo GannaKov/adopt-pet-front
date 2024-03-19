@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styles from "./AllPetsPage.module.css";
 import { getLimitedAnimals } from "../../services/requests";
 import { Link } from "react-router-dom";
-
-import PetCard from "../../components/PetCard/PetCard";
-import Grid from "@mui/material/Grid";
+import PetsList from "../../components/PetsList/PetsList";
+import Button from "@mui/material/Button";
 
 const AllPetsPage = () => {
   const navigate = useNavigate();
@@ -17,25 +16,24 @@ const AllPetsPage = () => {
       .catch((error) => console.log(error.status, error.message));
   }, []);
   return (
-    <div>
-      <h1>All our Pets</h1>
+    <div className={styles.petsPageWrp}>
+      <h1 className={styles.petsTitle}>All our Pets</h1>
 
       {animalsLimitedObj &&
         Object.entries(animalsLimitedObj).map(([type, animals]) => (
-          <div key={type}>
-            <h2>
+          <div key={type} className={styles.petsContainer}>
+            <h2 className={styles.petsTypeTitle}>
               {type.replace(type.charAt(0), type.charAt(0).toUpperCase())}
             </h2>
-            <Grid container spacing={2}>
-              {animals.map((animal) => (
-                <Grid item xs={12} lg={4} key={animal.id}>
-                  <PetCard animal={animal} />
-                </Grid>
-              ))}
-            </Grid>
-            <button type="button" onClick={() => navigate(`/animals/${type}`)}>
-              See more
-            </button>
+            <PetsList animals={animals} />
+
+            <Button
+              onClick={() => navigate(`/animals/${type}`)}
+              variant="contained"
+              style={{ width: 140, marginLeft: "auto" }}
+            >
+              See More
+            </Button>
           </div>
         ))}
     </div>

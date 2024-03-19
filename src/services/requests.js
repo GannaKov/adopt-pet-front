@@ -20,3 +20,9 @@ export const getByType = async (type) => {
 
   return data;
 };
+
+export const getSinglePet = async (type, id) => {
+  const { data } = await instance.get(`/animals/${type}/${id}`);
+
+  return data;
+};

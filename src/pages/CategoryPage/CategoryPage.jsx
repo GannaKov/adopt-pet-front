@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 
 import styles from "./CategoryPage.module.css";
+import Button from "@mui/material/Button";
 import { useEffect, useState } from "react";
 import { getByType } from "../../services/requests";
 import notFound from "../../assets/images/no_found.jpg";
@@ -22,9 +23,14 @@ const CategoryPage = () => {
 
   return (
     <div>
-      <button type="button" onClick={() => navigate(-1)}>
-        &larr; Go Back
-      </button>
+      <Button
+        variant="contained"
+        style={{ width: 140, marginBottom: "2rem" }}
+        onClick={() => navigate(-1)}
+      >
+        &larr;&nbsp; Go Back
+      </Button>
+
       {error === 404 && (
         <>
           {" "}
