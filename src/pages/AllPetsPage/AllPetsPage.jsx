@@ -4,6 +4,9 @@ import styles from "./AllPetsPage.module.css";
 import { getLimitedAnimals } from "../../services/requests";
 import { Link } from "react-router-dom";
 
+import PetCard from "../../components/PetCard/PetCard";
+import Grid from "@mui/material/Grid";
+
 const AllPetsPage = () => {
   const navigate = useNavigate();
   const [animalsLimitedObj, setAnimalsLimitedObj] = useState({});
@@ -23,13 +26,13 @@ const AllPetsPage = () => {
             <h2>
               {type.replace(type.charAt(0), type.charAt(0).toUpperCase())}
             </h2>
-            <ul>
+            <Grid container spacing={2}>
               {animals.map((animal) => (
-                <li key={animal.id}>
-                  <p>{animal.name}</p>
-                </li>
+                <Grid item xs={12} lg={4} key={animal.id}>
+                  <PetCard animal={animal} />
+                </Grid>
               ))}
-            </ul>
+            </Grid>
             <button type="button" onClick={() => navigate(`/animals/${type}`)}>
               See more
             </button>
