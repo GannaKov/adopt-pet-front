@@ -1,7 +1,7 @@
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import HomePage from "./pages/HomePage/HomePage";
+import HomePage, { loader as homeLoader } from "./pages/HomePage/HomePage";
 import AllPetsPage from "./pages/AllPetsPage/AllPetsPage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ContactFormPage from "./pages/ContactFormPage/ContactFormPage";
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
       element: <SharedLayout />,
       errorElement: <NotFoundPage />,
       children: [
-        { index: true, Component: HomePage },
+        { index: true, Component: HomePage, loader: homeLoader },
         {
           path: "/animals",
           // Component: UsersPage,

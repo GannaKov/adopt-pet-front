@@ -9,17 +9,22 @@ import Typography from "@mui/material/Typography";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getSinglePet } from "../../services/requests";
+import notFound from "../../assets/images/no_found.jpg";
 
 const SinglePetPage = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const { pet_id, pet_type } = useParams();
   const [pet, setPet] = useState(null);
+  const [error, setError] = useState();
 
   useEffect(() => {
     getSinglePet(pet_type, pet_id)
       .then((res) => setPet(res))
-      .catch((error) => console.log(error.status, error.message));
+      .catch((error) => {
+        console.log(error.status, error.message);
+        setError(error.response.status);
+      });
   }, [pet_id, pet_type]);
 
   return (
@@ -31,6 +36,18 @@ const SinglePetPage = () => {
       >
         &larr;&nbsp; Go Back
       </Button>
+      {error === 404 && (
+        <div className={styles.petsContainer}>
+          <h2 className={styles.petsTypeTitle}>
+            There is not pet with id {pet_id}
+          </h2>
+          <img
+            src={notFound}
+            alt="Page not found"
+            className={styles.notFoundImg}
+          />
+        </div>
+      )}
       {pet && (
         <Card sx={{ p: 1, borderRadius: 2, boxShadow: 3 }}>
           <CardContent>

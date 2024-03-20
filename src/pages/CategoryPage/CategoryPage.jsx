@@ -33,14 +33,16 @@ const CategoryPage = () => {
       </Button>
       <div>
         {error === 404 && (
-          <>
-            <p>There is not category {pet_type}</p>
+          <div className={styles.petsContainer}>
+            <h2 className={styles.petsTypeTitle}>
+              There is not category {pet_type}
+            </h2>
             <img
               src={notFound}
               alt="Page not found"
               className={styles.notFoundImg}
             />
-          </>
+          </div>
         )}
         {animalsArr && (
           <div className={styles.petsContainer}>

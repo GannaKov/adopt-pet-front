@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import styles from "./HomePage.module.css";
 import { getCategories } from "../../services/requests";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+
+export async function loader() {
+  const categories = await getCategories();
+  console.log("categor in loader", categories);
+  return categories;
+}
 
 const HomePage = () => {
-  const [categories, setCategories] = useState([]);
+  const categories = useLoaderData();
+  // const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    getCategories()
-      .then((res) => setCategories(res))
-      .catch((error) => console.log(error.status, error.message));
-  }, []);
+  // useEffect(() => {
+  //   getCategories()
+  //     .then((res) => setCategories(res))
+  //     .catch((error) => console.log(error.status, error.message));
+  // }, []);
 
   return (
     <div className={styles.petsPageWrp}>

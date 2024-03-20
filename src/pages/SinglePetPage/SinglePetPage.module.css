@@ -5,3 +5,12 @@
   flex-direction: column;
   align-items: center;
 }
+.notFoundImg {
+  width: 500px;
+  margin: 0 auto;
+}
+.petsTypeTitle {
+  margin-bottom: 2rem;
+  text-align: center;
+  text-decoration: underline;
+}
