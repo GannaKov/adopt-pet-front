@@ -23,16 +23,13 @@ const PetCard = ({ animal }) => {
         sx={{
           height: 280,
           width: "100%",
-          //   [theme.breakpoints.down("sm")]: {
-          //     width: "100%",
-          //   },
 
-          [theme.breakpoints.up("sm")]: {
-            width: 500,
-          },
-          [theme.breakpoints.up("lg")]: {
-            width: 350,
-          },
+          // [theme.breakpoints.up("sm")]: {
+          //   width: 500,
+          // },
+          // [theme.breakpoints.up("lg")]: {
+          //   width: 350,
+          // },
         }}
         // lg={{ height: 280, width: 334 }}
         image={animal.url}
@@ -40,7 +37,10 @@ const PetCard = ({ animal }) => {
       />
       <CardContent>
         <Typography variant="h6">{animal.name}</Typography>
-        <Typography variant="body1">Breed: {animal.breed}</Typography>
+        <Typography variant="body1">
+          <span style={{ fontWeight: 500 }}>Breed:&nbsp;&nbsp;</span>
+          {animal.breed}
+        </Typography>
       </CardContent>
       <CardActions>
         <Button

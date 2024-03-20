@@ -13,9 +13,9 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.petsPageWrp}>
       {categories && (
-        <nav>
+        <nav className={styles.petsTypeNav}>
           <ul>
             {categories.map((category) => (
               <li key={category}>

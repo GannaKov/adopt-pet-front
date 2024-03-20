@@ -23,7 +23,7 @@ const SinglePetPage = () => {
   }, [pet_id, pet_type]);
 
   return (
-    <>
+    <div className={styles.petsPageWrp}>
       <Button
         variant="contained"
         style={{ width: 140, marginBottom: "2rem" }}
@@ -41,15 +41,18 @@ const SinglePetPage = () => {
           </CardContent>
           <CardMedia
             sx={{
-              height: 280,
+              height: 400,
+              [theme.breakpoints.up("md")]: {
+                height: "280",
+              },
               width: "100%",
               //   [theme.breakpoints.down("sm")]: {
               //     width: "100%",
               //   },
 
-              // [theme.breakpoints.up("sm")]: {
-              //   width: 500,
-              // },
+              [theme.breakpoints.up("md")]: {
+                width: 800,
+              },
               // [theme.breakpoints.up("lg")]: {
               //   width: 500,
               // },
@@ -59,8 +62,14 @@ const SinglePetPage = () => {
           />
           <CardContent>
             <Typography variant="h6">{pet.name}</Typography>
-            <Typography variant="body1">Breed: {pet.breed}</Typography>
-            <Typography variant="body1">Age: {pet.age} year</Typography>
+            <Typography variant="body1">
+              <span style={{ fontWeight: 500 }}>Breed:&nbsp;&nbsp;</span>
+              {pet.breed}
+            </Typography>
+            <Typography variant="body1">
+              <span style={{ fontWeight: 500 }}>Age:&nbsp;&nbsp;</span>{" "}
+              {pet.age} year
+            </Typography>
             <Typography variant="body1"> {pet.description}</Typography>
           </CardContent>
           <CardActions>
@@ -74,7 +83,7 @@ const SinglePetPage = () => {
           </CardActions>
         </Card>
       )}
-    </>
+    </div>
   );
 };
 

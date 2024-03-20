@@ -1,16 +1,14 @@
 .petsPageWrp {
   padding-left: 1rem;
   padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 .petsTitle {
   margin-bottom: 2rem;
   text-align: center;
 }
-.petsContainer {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center;*/
-}
+
 .petsTypeTitle {
   margin-bottom: 2rem;
   text-align: center;

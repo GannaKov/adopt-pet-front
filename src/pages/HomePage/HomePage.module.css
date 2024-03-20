@@ -1,0 +1,9 @@
+.petsPageWrp {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.petsTypeNav {
+  margin: 0 auto;
+}

@@ -32,7 +32,7 @@
   text-decoration-thickness: 0.2rem;
 }
 .pageWrp {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
