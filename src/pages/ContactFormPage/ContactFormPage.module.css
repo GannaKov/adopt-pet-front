@@ -1,0 +1,43 @@
+.contactForm {
+  display: flex;
+  flex-direction: column;
+}
+.formContainer {
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(128, 128, 128, 0.736);
+  border-radius: 5px;
+  padding: 3rem;
+  box-shadow: 0 1px 3px #6d035f1f, 0 0 5px #7228790f, 0 0 8px #00000029;
+}
+.contactFormLabel {
+  margin-bottom: 1rem;
+}
+.contactFormField {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid gray;
+  outline: 1px solid transparent;
+  height: 35px;
+}
+.contactFormField:last-of-type {
+  margin-bottom: 3rem;
+}
+.contactFormField:is(:hover, :focus) {
+  border-color: rgb(52, 51, 51);
+}
+.contactFormTextarea {
+  margin-bottom: 3rem;
+  border-radius: 5px;
+  border: 1px solid gray;
+  outline: 1px solid transparent;
+  resize: none;
+}
+
+.contactFormTextarea:is(:hover, :focus) {
+  border-color: rgb(52, 51, 51);
+}
+.contactFormError {
+  color: red;
+  font-style: italic;
+}
