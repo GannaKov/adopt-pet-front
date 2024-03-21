@@ -28,15 +28,16 @@ const SinglePetPage = () => {
   // }, [pet_id, pet_type]);
 
   return (
-    <div className={styles.petsPageWrp}>
-      <Button
-        variant="contained"
-        style={{ width: 140, marginBottom: "2rem" }}
-        onClick={() => navigate(-1)}
-      >
-        &larr;&nbsp; Go Back
-      </Button>
-      {/* {error === 404 && (
+    <div className={styles.pageWrp}>
+      <div className={styles.petsPageWrp}>
+        <Button
+          variant="contained"
+          style={{ width: 140, marginBottom: "2rem" }}
+          onClick={() => navigate(-1)}
+        >
+          &larr;&nbsp; Go Back
+        </Button>
+        {/* {error === 404 && (
         <div className={styles.petsContainer}>
           <h2 className={styles.petsTypeTitle}>
             There is not pet with id {pet_id}
@@ -48,49 +49,50 @@ const SinglePetPage = () => {
           />
         </div>
       )} */}
-      {pet && (
-        <Card sx={{ p: 1, borderRadius: 2, boxShadow: 3 }}>
-          <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
-              Pet&apos;s id:&nbsp;&nbsp;
-              <span style={{ textDecoration: "underline" }}>{pet.id}</span>
-            </Typography>
-          </CardContent>
-          <CardMedia
-            sx={{
-              height: 400,
-              [theme.breakpoints.up("md")]: {
-                height: "280",
-              },
-              width: "100%",
-              //   [theme.breakpoints.down("sm")]: {
-              //     width: "100%",
-              //   },
+        {pet && (
+          <Card sx={{ p: 1, borderRadius: 2, boxShadow: 3 }}>
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div">
+                Pet&apos;s id:&nbsp;&nbsp;
+                <span style={{ textDecoration: "underline" }}>{pet.id}</span>
+              </Typography>
+            </CardContent>
+            <CardMedia
+              sx={{
+                height: 400,
+                [theme.breakpoints.up("md")]: {
+                  height: "280",
+                },
+                width: "100%",
+                //   [theme.breakpoints.down("sm")]: {
+                //     width: "100%",
+                //   },
 
-              [theme.breakpoints.up("md")]: {
-                width: 800,
-              },
-              // [theme.breakpoints.up("lg")]: {
-              //   width: 500,
-              // },
-            }}
-            image={pet.url}
-            title={pet.name}
-          />
-          <CardContent>
-            <Typography variant="h6">{pet.name}</Typography>
-            <Typography variant="body1">
-              <span style={{ fontWeight: 500 }}>Breed:&nbsp;&nbsp;</span>
-              {pet.breed}
-            </Typography>
-            <Typography variant="body1">
-              <span style={{ fontWeight: 500 }}>Age:&nbsp;&nbsp;</span>{" "}
-              {pet.age} year
-            </Typography>
-            <Typography variant="body1"> {pet.description}</Typography>
-          </CardContent>
-        </Card>
-      )}
+                [theme.breakpoints.up("md")]: {
+                  width: 800,
+                },
+                // [theme.breakpoints.up("lg")]: {
+                //   width: 500,
+                // },
+              }}
+              image={pet.url}
+              title={pet.name}
+            />
+            <CardContent>
+              <Typography variant="h6">{pet.name}</Typography>
+              <Typography variant="body1">
+                <span style={{ fontWeight: 500 }}>Breed:&nbsp;&nbsp;</span>
+                {pet.breed}
+              </Typography>
+              <Typography variant="body1">
+                <span style={{ fontWeight: 500 }}>Age:&nbsp;&nbsp;</span>{" "}
+                {pet.age} year
+              </Typography>
+              <Typography variant="body1"> {pet.description}</Typography>
+            </CardContent>
+          </Card>
+        )}
+      </div>
     </div>
   );
 };

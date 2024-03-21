@@ -36,95 +36,101 @@ const ContactFormPage = () => {
     actions.resetForm();
   };
   return (
-    <div className={styles.formSection}>
-      <div className={styles.formContainer}>
-        <Formik
-          // onSubmit={(values, { setSubmitting }) => {
-          //   alert(JSON.stringify(values, null, 2));
-          //   setSubmitting(false);
-          // }}
-          // initialValues={{
-          //   username: "",
-          //   email: "",
-          //   message: "",
-          //   subject: "good",
-          // }}
-          initialValues={initialValues}
-          onSubmit={handleSubmit}
-          validationSchema={FeedbackSchema}
-        >
-          <Form className={styles.contactForm}>
-            <ErrorMessage
-              name="subject"
-              component="span"
-              className={styles.contactFormError}
-            />
-            <label className={styles.contactFormLabel} htmlFor={subjectFieldId}>
-              Subject<span style={{ color: "#d32828" }}>&#42;</span>
-            </label>
-            <Field
-              as="select"
-              className={styles.contactFormField}
-              name="subject"
-              id={subjectFieldId}
-            >
-              <option value="adopt">I want to adopt a pet</option>
-              <option value="forAdopt">I have a pet for adoption</option>
-              <option value="other">Other</option>
-            </Field>
-            <ErrorMessage
-              className={styles.contactFormError}
-              name="username"
-              component="span"
-            />
-            <label className={styles.contactFormLabel} htmlFor={nameFieldId}>
-              Username<span style={{ color: "#d32828" }}>&#42;</span>
-            </label>
-            <Field
-              className={styles.contactFormField}
-              type="text"
-              name="username"
-              id={nameFieldId}
-            />
-            <ErrorMessage
-              name="email"
-              component="span"
-              className={styles.contactFormError}
-            />
-            <label className={styles.contactFormLabel} htmlFor={emailFieldId}>
-              Email<span style={{ color: "#d32828" }}>&#42;</span>
-            </label>
-            <Field
-              className={styles.contactFormField}
-              type="email"
-              name="email"
-              id={emailFieldId}
-            />
-            <ErrorMessage
-              name="message"
-              component="span"
-              className={styles.contactFormError}
-            />
-            <label className={styles.contactFormLabel} htmlFor={msgFieldId}>
-              Message<span style={{ color: "#d32828" }}>&#42;</span>
-            </label>
-            <Field
-              className={styles.contactFormTextarea}
-              as="textarea"
-              name="message"
-              id={msgFieldId}
-              rows="8"
-            />
+    <div className={styles.pageWrp}>
+      {" "}
+      <div className={styles.formSection}>
+        <div className={styles.formContainer}>
+          <Formik
+            // onSubmit={(values, { setSubmitting }) => {
+            //   alert(JSON.stringify(values, null, 2));
+            //   setSubmitting(false);
+            // }}
+            // initialValues={{
+            //   username: "",
+            //   email: "",
+            //   message: "",
+            //   subject: "good",
+            // }}
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+            validationSchema={FeedbackSchema}
+          >
+            <Form className={styles.contactForm}>
+              <ErrorMessage
+                name="subject"
+                component="span"
+                className={styles.contactFormError}
+              />
+              <label
+                className={styles.contactFormLabel}
+                htmlFor={subjectFieldId}
+              >
+                Subject<span style={{ color: "#d32828" }}>&#42;</span>
+              </label>
+              <Field
+                as="select"
+                className={styles.contactFormField}
+                name="subject"
+                id={subjectFieldId}
+              >
+                <option value="adopt">I want to adopt a pet</option>
+                <option value="forAdopt">I have a pet for adoption</option>
+                <option value="other">Other</option>
+              </Field>
+              <ErrorMessage
+                className={styles.contactFormError}
+                name="username"
+                component="span"
+              />
+              <label className={styles.contactFormLabel} htmlFor={nameFieldId}>
+                Username<span style={{ color: "#d32828" }}>&#42;</span>
+              </label>
+              <Field
+                className={styles.contactFormField}
+                type="text"
+                name="username"
+                id={nameFieldId}
+              />
+              <ErrorMessage
+                name="email"
+                component="span"
+                className={styles.contactFormError}
+              />
+              <label className={styles.contactFormLabel} htmlFor={emailFieldId}>
+                Email<span style={{ color: "#d32828" }}>&#42;</span>
+              </label>
+              <Field
+                className={styles.contactFormField}
+                type="email"
+                name="email"
+                id={emailFieldId}
+              />
+              <ErrorMessage
+                name="message"
+                component="span"
+                className={styles.contactFormError}
+              />
+              <label className={styles.contactFormLabel} htmlFor={msgFieldId}>
+                Message<span style={{ color: "#d32828" }}>&#42;</span>
+              </label>
+              <Field
+                className={styles.contactFormTextarea}
+                as="textarea"
+                name="message"
+                id={msgFieldId}
+                rows="8"
+              />
 
-            <Button
-              variant="outlined"
-              style={{ width: 140, margin: "0 auto" }}
-              type="submit"
-            >
-              Send
-            </Button>
-          </Form>
-        </Formik>
+              <Button
+                variant="outlined"
+                style={{ width: 140, margin: "0 auto" }}
+                type="submit"
+              >
+                Send
+              </Button>
+            </Form>
+          </Formik>
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,23 @@
+.pageWrp {
+  /* margin: 0 auto; */
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .petsPageWrp {
   padding-left: 1rem;
   padding-right: 1rem;
   display: flex;
   flex-direction: column;
 }
-.petsTypeNav {
-  margin: 0 auto;
+/* .petsTypeNav {
+  margin: 0rem auto 0;
+} */
+.petsTypeNavLink {
+  color: rgb(19, 28, 37);
+}
+.petsTypeNavItem:not(:last-child) {
+  margin-bottom: 0.5rem;
 }

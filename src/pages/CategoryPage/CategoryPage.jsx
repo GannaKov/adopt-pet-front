@@ -26,16 +26,17 @@ const CategoryPage = () => {
   // }, [pet_type]);
 
   return (
-    <div className={styles.petsPageWrp}>
-      <Button
-        variant="contained"
-        style={{ width: 140, margin: "0 auto 2rem" }}
-        onClick={() => navigate(-1)}
-      >
-        &larr;&nbsp; Go Back
-      </Button>
-      <div>
-        {/* {error === 404 && (
+    <div className={styles.pageWrp}>
+      <div className={styles.petsPageWrp}>
+        <Button
+          variant="contained"
+          style={{ width: 140, margin: "0 auto 2rem" }}
+          onClick={() => navigate(-1)}
+        >
+          &larr;&nbsp; Go Back
+        </Button>
+        <div>
+          {/* {error === 404 && (
           <div className={styles.petsContainer}>
             <h2 className={styles.petsTypeTitle}>
               There is not category {pet_type}
@@ -47,21 +48,22 @@ const CategoryPage = () => {
             />
           </div>
         )} */}
-        {animalsArr && (
-          <div className={styles.petsContainer}>
-            <h1 className={styles.petsTypeTitle}>
-              {pet_type.replace(
-                pet_type.charAt(0),
-                pet_type.charAt(0).toUpperCase()
+          {animalsArr && (
+            <div className={styles.petsContainer}>
+              <h1 className={styles.petsTypeTitle}>
+                {pet_type.replace(
+                  pet_type.charAt(0),
+                  pet_type.charAt(0).toUpperCase()
+                )}
+              </h1>
+              {animalsArr.length > 0 ? (
+                <PetsList animals={animalsArr} />
+              ) : (
+                <p>There are no animals in this category</p>
               )}
-            </h1>
-            {animalsArr.length > 0 ? (
-              <PetsList animals={animalsArr} />
-            ) : (
-              <p>There are no animals in this category</p>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -16,23 +16,29 @@ const HomePage = () => {
   // }, []);
 
   return (
-    <div className={styles.petsPageWrp}>
-      {categories && (
-        <nav className={styles.petsTypeNav}>
-          <ul>
-            {categories.map((category) => (
-              <li key={category}>
-                <Link to={`/animals/${category}`}>
-                  {category.replace(
-                    category.charAt(0),
-                    category.charAt(0).toUpperCase()
-                  )}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
+    <div className={styles.pageWrp}>
+      <div className={styles.petsPageWrp}>
+        {categories && (
+          <nav className={styles.petsTypeNav}>
+            <ul>
+              {categories.map((category) => (
+                <li key={category} className={styles.petsTypeNavItem}>
+                  <Link
+                    to={`/animals/${category}`}
+                    className={styles.petsTypeNavLink}
+                  >
+                    {category.replace(
+                      category.charAt(0),
+                      category.charAt(0).toUpperCase()
+                    )}
+                    &nbsp;&rarr;
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </div>
     </div>
   );
 };
