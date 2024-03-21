@@ -12,20 +12,20 @@ const instance = axios.create({ baseURL: BASEURL });
 
 export const getCategoriesLoder = async () => {
   const { data } = await instance.get("/animals");
-  return data;
+  return data.data;
 };
 
 export const getLimitedAnimalsLoader = async () => {
   const { data } = await instance.get("/main-page");
 
-  return data;
+  return data.data;
 };
 
 export const getByTypeLoader = async ({ params }) => {
   try {
     const { data } = await instance.get(`/animals/${params.pet_type}`);
 
-    return data;
+    return data.data;
   } catch (error) {
     if (error.response && error.response.status === 404) {
       const customError = {
@@ -46,7 +46,7 @@ export const getSinglePetLoader = async ({ params }) => {
     const { data } = await instance.get(
       `/animals/${params.pet_type}/${params.pet_id}`
     );
-    return data;
+    return data.data;
   } catch (error) {
     if (error.response && error.response.status === 404) {
       const customError = {
@@ -60,4 +60,10 @@ export const getSinglePetLoader = async ({ params }) => {
       throw error;
     }
   }
+};
+
+export const sendContactForm = async (values) => {
+  const { data } = await instance.post(`/contact-form`, values);
+  console.log("data from backend", data);
+  return data;
 };

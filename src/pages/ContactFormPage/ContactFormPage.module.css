@@ -1,14 +1,30 @@
+.formSection {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 .contactForm {
   display: flex;
   flex-direction: column;
 }
 .formContainer {
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
   border: 1px solid rgba(128, 128, 128, 0.736);
   border-radius: 5px;
-  padding: 3rem;
+  padding: 1rem;
   box-shadow: 0 1px 3px #6d035f1f, 0 0 5px #7228790f, 0 0 8px #00000029;
+}
+@media screen and (min-width: 600px) {
+  .formContainer {
+    width: 550px;
+    /* padding: 3rem; */
+  }
+}
+@media screen and (min-width: 900px) {
+  .formContainer {
+    width: 650px;
+    padding: 3rem;
+  }
 }
 .contactFormLabel {
   margin-bottom: 1rem;
