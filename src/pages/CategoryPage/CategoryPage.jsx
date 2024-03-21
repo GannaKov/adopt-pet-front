@@ -1,26 +1,29 @@
-import { useParams, useNavigate } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { getByType } from "../../services/requests";
+import { useParams, useNavigate, useLoaderData } from "react-router-dom";
 
 import styles from "./CategoryPage.module.css";
 import Button from "@mui/material/Button";
-import { useEffect, useState } from "react";
-import { getByType } from "../../services/requests";
-import notFound from "../../assets/images/no_found.jpg";
+
 import PetsList from "../../components/PetsList/PetsList";
 
 const CategoryPage = () => {
   const navigate = useNavigate();
   const { pet_type } = useParams();
-  const [animalsArr, setAnimalsArr] = useState(null);
-  const [error, setError] = useState();
 
-  useEffect(() => {
-    getByType(pet_type)
-      .then((res) => setAnimalsArr(res))
-      .catch((error) => {
-        setError(error.response.status);
-        console.log(error.response.status, error.response.data);
-      });
-  }, [pet_type]);
+  const animalsArr = useLoaderData();
+
+  // const [animalsArr, setAnimalsArr] = useState(null);
+  // const [error, setError] = useState();
+
+  // useEffect(() => {
+  //   getByType(pet_type)
+  //     .then((res) => setAnimalsArr(res))
+  //     .catch((error) => {
+  //       setError(error.response.status);
+  //       console.log(error.response.status, error.response.data);
+  //     });
+  // }, [pet_type]);
 
   return (
     <div className={styles.petsPageWrp}>
@@ -32,7 +35,7 @@ const CategoryPage = () => {
         &larr;&nbsp; Go Back
       </Button>
       <div>
-        {error === 404 && (
+        {/* {error === 404 && (
           <div className={styles.petsContainer}>
             <h2 className={styles.petsTypeTitle}>
               There is not category {pet_type}
@@ -43,7 +46,7 @@ const CategoryPage = () => {
               className={styles.notFoundImg}
             />
           </div>
-        )}
+        )} */}
         {animalsArr && (
           <div className={styles.petsContainer}>
             <h1 className={styles.petsTypeTitle}>
@@ -53,13 +56,6 @@ const CategoryPage = () => {
               )}
             </h1>
             {animalsArr.length > 0 ? (
-              // <ul>
-              //   {animalsArr.map((animal) => (
-              //     <li key={animal.id}>
-              //       <p>{animal.name}</p>
-              //     </li>
-              //   ))}
-              // </ul>
               <PetsList animals={animalsArr} />
             ) : (
               <p>There are no animals in this category</p>

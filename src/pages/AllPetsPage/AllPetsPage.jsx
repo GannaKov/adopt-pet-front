@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { getLimitedAnimals } from "../../services/requests";
+import { useNavigate, useLoaderData } from "react-router-dom";
 import styles from "./AllPetsPage.module.css";
-import { getLimitedAnimals } from "../../services/requests";
-import { Link } from "react-router-dom";
+
 import PetsList from "../../components/PetsList/PetsList";
 import Button from "@mui/material/Button";
 
 const AllPetsPage = () => {
+  const animalsLimitedObj = useLoaderData();
   const navigate = useNavigate();
-  const [animalsLimitedObj, setAnimalsLimitedObj] = useState({});
 
-  useEffect(() => {
-    getLimitedAnimals()
-      .then((res) => setAnimalsLimitedObj(res))
-      .catch((error) => console.log(error.status, error.message));
-  }, []);
+  // const [animalsLimitedObj, setAnimalsLimitedObj] = useState({});
+
+  // useEffect(() => {
+  //   getLimitedAnimals()
+  //     .then((res) => setAnimalsLimitedObj(res))
+  //     .catch((error) => console.log(error.status, error.message));
+  // }, []);
   return (
     <div className={styles.petsPageWrp}>
       <h1 className={styles.petsTitle}>All our Pets</h1>

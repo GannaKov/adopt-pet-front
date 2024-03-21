@@ -8,7 +8,10 @@
   margin-bottom: 2rem;
   text-align: center;
 }
-
+.petsContainer {
+  display: flex;
+  flex-direction: column;
+}
 .petsTypeTitle {
   margin-bottom: 2rem;
   text-align: center;

@@ -4,13 +4,13 @@ import styles from "./NotFoundPage.module.css";
 
 const NotFoundPage = () => {
   const error = useRouteError();
-  console.error(error);
+
   return (
     <div className={styles.pageWrp}>
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
+      <h1 className={styles.errorTitle}>Oops!</h1>
+      {/* <p>Sorry, an unexpected error has occurred.</p> */}
+      <p className={styles.errorText}>
+        <i>{error.response.statusText || error.message}</i>
       </p>
       <img src={notFound} alt="Page not found" className={styles.notFoundImg} />
     </div>

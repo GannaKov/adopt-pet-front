@@ -13,3 +13,9 @@
     width: 400px;
   }
 }
+.errorTitle {
+  margin-bottom: 2rem;
+}
+.errorText {
+  font-size: 1.3rem;
+}

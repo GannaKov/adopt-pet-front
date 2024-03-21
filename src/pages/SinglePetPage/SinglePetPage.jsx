@@ -1,31 +1,31 @@
-import styles from "./SinglePetPage.module.css";
 /* eslint-disable react/prop-types */
+// import { useParams } from "react-router-dom";
+// import { useEffect, useState } from "react";
+//import { getSinglePet } from "../../services/requests";
+import styles from "./SinglePetPage.module.css";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import { useTheme, CardMedia } from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getSinglePet } from "../../services/requests";
-import notFound from "../../assets/images/no_found.jpg";
+import { useNavigate, useLoaderData } from "react-router-dom";
 
 const SinglePetPage = () => {
+  const pet = useLoaderData();
   const theme = useTheme();
   const navigate = useNavigate();
-  const { pet_id, pet_type } = useParams();
-  const [pet, setPet] = useState(null);
-  const [error, setError] = useState();
+  //const { pet_id, pet_type } = useParams();
+  // const [pet, setPet] = useState(null);
+  // const [error, setError] = useState();
 
-  useEffect(() => {
-    getSinglePet(pet_type, pet_id)
-      .then((res) => setPet(res))
-      .catch((error) => {
-        console.log(error.status, error.message);
-        setError(error.response.status);
-      });
-  }, [pet_id, pet_type]);
+  // useEffect(() => {
+  //   getSinglePet(pet_type, pet_id)
+  //     .then((res) => setPet(res))
+  //     .catch((error) => {
+  //       console.log(error.status, error.message);
+  //       setError(error.response.status);
+  //     });
+  // }, [pet_id, pet_type]);
 
   return (
     <div className={styles.petsPageWrp}>
@@ -36,7 +36,7 @@ const SinglePetPage = () => {
       >
         &larr;&nbsp; Go Back
       </Button>
-      {error === 404 && (
+      {/* {error === 404 && (
         <div className={styles.petsContainer}>
           <h2 className={styles.petsTypeTitle}>
             There is not pet with id {pet_id}
@@ -47,7 +47,7 @@ const SinglePetPage = () => {
             className={styles.notFoundImg}
           />
         </div>
-      )}
+      )} */}
       {pet && (
         <Card sx={{ p: 1, borderRadius: 2, boxShadow: 3 }}>
           <CardContent>
@@ -89,15 +89,6 @@ const SinglePetPage = () => {
             </Typography>
             <Typography variant="body1"> {pet.description}</Typography>
           </CardContent>
-          <CardActions>
-            {/* <Button
-          size="small"
-          sx={{ ml: "auto" }}
-          onClick={() => navigate(`/animals/${animal.type}/${animal.id}`)}
-        >
-          Learn More
-        </Button> */}
-          </CardActions>
         </Card>
       )}
     </div>
