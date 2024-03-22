@@ -3,7 +3,7 @@ import axios from "axios";
 //const BASEURL = "http://localhost:3000";
 const BASEURL = import.meta.env.VITE_BASE_URL;
 const instance = axios.create({ baseURL: BASEURL });
-
+//sm chmng
 // export async function homeLoader() {
 //   const categories = await getCategories();
 //   console.log("categor in loader", categories);
