@@ -1,23 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Boogaloo&display=swap");
 .pageWrp {
-  /* margin: 0 auto; */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
-  height: 100vh;
   display: flex;
+  flex-direction: column;
+
   align-items: center;
   justify-content: center;
+
+  background-image: url("../../assets/images/mause-1.png");
+  background-size: 80px 80px;
+  background-position: top 150px right 20px;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 400px) {
+  .pageWrp {
+    background-size: 100px 100px;
+    background-position: top 110px right 20px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .pageWrp {
+    background-size: 130px 130px;
+    background-position: top 40px right 20px;
+  }
 }
 .petsPageWrp {
+  /* margin-top: 4rem; */
   padding-left: 1rem;
   padding-right: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-/* .petsTypeNav {
-  margin: 0rem auto 0;
-} */
+.petsPageTitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: "Boogaloo";
+  font-size: 2.7rem;
+  letter-spacing: 1.25px;
+}
+@media screen and (min-width: 600px) {
+  .petsPageTitle {
+    margin-bottom: 2rem;
+
+    font-size: 2.7rem;
+    letter-spacing: 1.25px;
+  }
+}
+.petsTypeNav {
+  margin-bottom: 3rem;
+}
 .petsTypeNavLink {
-  color: rgb(19, 28, 37);
+  /* color: rgb(220, 17, 153); */
+  color: rgb(17, 19, 143);
+  font-size: 1.3rem;
+}
+.petsTypeNavLink:is(:hover, :focus) {
+  color: rgb(7, 10, 235);
+  text-decoration: underline;
 }
 .petsTypeNavItem:not(:last-child) {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+.homeImgWrp {
+  display: flex;
+  gap: 2rem;
+}
+.homeImg1 {
+  width: 80px;
+}
+@media screen and (min-width: 600px) {
+  .homeImg1 {
+    width: 120px;
+  }
+}
+.homeImg2 {
+  width: 60px;
+}
+@media screen and (min-width: 600px) {
+  .homeImg2 {
+    width: 100px;
+  }
+}
+.homeImg3 {
+  width: 100px;
+  height: auto;
+}
+@media screen and (min-width: 600px) {
+  .homeImg3 {
+    width: 150px;
+    height: auto;
+  }
 }

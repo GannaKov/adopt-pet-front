@@ -1,6 +1,9 @@
 // import { useEffect, useState } from "react";
 // import { home } from "../../services/requests";
 import styles from "./HomePage.module.css";
+import cat_1 from "../../assets/images/cat-1.png";
+import cat_2 from "../../assets/images/cat-2.png";
+import dog_2 from "../../assets/images/dog_2.png";
 
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -18,6 +21,9 @@ const HomePage = () => {
   return (
     <div className={styles.pageWrp}>
       <div className={styles.petsPageWrp}>
+        <h2 className={styles.petsPageTitle}>
+          Choose your new new furry friend
+        </h2>
         {categories && (
           <nav className={styles.petsTypeNav}>
             <ul>
@@ -38,6 +44,11 @@ const HomePage = () => {
             </ul>
           </nav>
         )}
+        <div className={styles.homeImgWrp}>
+          <img className={styles.homeImg1} src={dog_2} alt="dog" />
+          <img className={styles.homeImg2} src={cat_1} alt="cat" />
+          <img className={styles.homeImg3} src={cat_2} alt="cat" />
+        </div>
       </div>
     </div>
   );
