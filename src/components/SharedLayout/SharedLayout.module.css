@@ -55,7 +55,13 @@
     justify-content: space-around;
   }
 }
+.navItem {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 .headerNavLink {
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 1.3rem;
   color: black;
 }

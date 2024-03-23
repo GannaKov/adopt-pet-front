@@ -2,6 +2,7 @@
 // import { useParams } from "react-router-dom";
 // import { useEffect, useState } from "react";
 //import { getSinglePet } from "../../services/requests";
+import CircularProgress from "@mui/material/CircularProgress";
 import styles from "./SinglePetPage.module.css";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -11,9 +12,11 @@ import Typography from "@mui/material/Typography";
 import { useNavigate, useLoaderData } from "react-router-dom";
 
 const SinglePetPage = () => {
+  const navigate = useNavigate();
+  const isLoading = navigate.state === "loading";
   const pet = useLoaderData();
   const theme = useTheme();
-  const navigate = useNavigate();
+
   //const { pet_id, pet_type } = useParams();
   // const [pet, setPet] = useState(null);
   // const [error, setError] = useState();
@@ -37,6 +40,7 @@ const SinglePetPage = () => {
         >
           &larr;&nbsp; Go Back
         </Button>
+        {isLoading && <CircularProgress color="secondary" />}
         {/* {error === 404 && (
         <div className={styles.petsContainer}>
           <h2 className={styles.petsTypeTitle}>

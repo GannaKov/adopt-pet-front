@@ -21,9 +21,7 @@ const HomePage = () => {
   return (
     <div className={styles.pageWrp}>
       <div className={styles.petsPageWrp}>
-        <h2 className={styles.petsPageTitle}>
-          Choose your new new furry friend
-        </h2>
+        <h2 className={styles.petsPageTitle}>Choose your new furry friend</h2>
         {categories && (
           <nav className={styles.petsTypeNav}>
             <ul>

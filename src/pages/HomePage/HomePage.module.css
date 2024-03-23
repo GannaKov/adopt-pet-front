@@ -36,7 +36,7 @@
 }
 .petsPageTitle {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   font-family: "Boogaloo";
   font-size: 2.7rem;
   letter-spacing: 1.25px;
@@ -50,7 +50,7 @@
   }
 }
 .petsTypeNav {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 .petsTypeNavLink {
   /* color: rgb(220, 17, 153); */

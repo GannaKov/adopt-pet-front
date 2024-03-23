@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 // import { getByType } from "../../services/requests";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useParams, useNavigate, useLoaderData } from "react-router-dom";
 
 import styles from "./CategoryPage.module.css";
@@ -9,6 +10,8 @@ import PetsList from "../../components/PetsList/PetsList";
 
 const CategoryPage = () => {
   const navigate = useNavigate();
+
+  const isLoading = navigate.state === "loading";
   const { pet_type } = useParams();
 
   const animalsArr = useLoaderData();
@@ -35,6 +38,9 @@ const CategoryPage = () => {
         >
           &larr;&nbsp; Go Back
         </Button>
+        {isLoading && (
+          <CircularProgress style={{ margin: "0 auto" }} color="secondary" />
+        )}
         <div>
           {/* {error === 404 && (
           <div className={styles.petsContainer}>

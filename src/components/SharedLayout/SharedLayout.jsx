@@ -9,7 +9,7 @@ const SharedLayout = () => {
         <nav className={styles.headerNav}>
           <img className={styles.headerLogo} src={mause} alt="Logo" />
           <ul className={styles.navList}>
-            <li>
+            <li className={styles.navItem}>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -21,7 +21,7 @@ const SharedLayout = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            <li className={styles.navItem}>
               <NavLink
                 end
                 to="/animals"
@@ -34,7 +34,7 @@ const SharedLayout = () => {
                 Animals
               </NavLink>
             </li>
-            <li>
+            <li className={styles.navItem}>
               <NavLink
                 to="/contact-form"
                 className={({ isActive }) =>

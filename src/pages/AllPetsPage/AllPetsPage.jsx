@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 // import { getLimitedAnimals } from "../../services/requests";
 import { useNavigate, useLoaderData } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 import styles from "./AllPetsPage.module.css";
 
 import PetsList from "../../components/PetsList/PetsList";
@@ -10,6 +11,7 @@ const AllPetsPage = () => {
   const animalsLimitedObj = useLoaderData();
   const navigate = useNavigate();
 
+  const isLoading = navigate.state === "loading";
   // const [animalsLimitedObj, setAnimalsLimitedObj] = useState({});
 
   // useEffect(() => {
@@ -21,7 +23,9 @@ const AllPetsPage = () => {
     <div className={styles.pageWrp}>
       <div className={styles.petsPageWrp}>
         <h1 className={styles.petsTitle}>All our Pets</h1>
-
+        {isLoading && (
+          <CircularProgress style={{ margin: "0 auto" }} color="secondary" />
+        )}
         {animalsLimitedObj &&
           Object.entries(animalsLimitedObj).map(([type, animals]) => (
             <div key={type} className={styles.petsContainer}>
