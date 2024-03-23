@@ -50,7 +50,18 @@ const SinglePetPage = () => {
         </div>
       )} */}
         {pet && (
-          <Card sx={{ p: 1, borderRadius: 2, boxShadow: 3 }}>
+          <Card
+            sx={{
+              p: 1,
+              borderRadius: 2,
+              boxShadow: 3,
+              width: "100%",
+
+              [theme.breakpoints.up("md")]: {
+                width: 800,
+              },
+            }}
+          >
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
                 Pet&apos;s id:&nbsp;&nbsp;
