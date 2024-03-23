@@ -11,11 +11,20 @@
 }
 .headerNav {
   display: grid;
-  grid-template-columns: 0.5fr 3.5fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
+  grid-column-gap: 0rem;
   grid-row-gap: 0px;
   align-items: center;
+}
+@media screen and (min-width: 450px) {
+  .headerNav {
+    grid-template-columns: 0.5fr 3.5fr;
+    grid-template-rows: 0fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+  }
 }
 .headerLogo {
   width: 60px;
@@ -35,7 +44,16 @@
 
 .navList {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+
+  /* align-items: center; */
+}
+@media screen and (min-width: 450px) {
+  .navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 .headerNavLink {
   font-size: 1.3rem;
