@@ -1,5 +1,4 @@
 .pageWrp {
-  /* margin: 0 auto; */
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
@@ -18,6 +17,7 @@
   flex-direction: column;
 }
 .petsTypeTitle {
+  font-size: 1.7rem;
   margin-bottom: 2rem;
   text-align: center;
   text-decoration: underline;

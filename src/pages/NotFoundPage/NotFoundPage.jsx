@@ -8,7 +8,7 @@ const NotFoundPage = () => {
   return (
     <div className={styles.pageWrp}>
       <h1 className={styles.errorTitle}>Oops!</h1>
-      {/* <p>Sorry, an unexpected error has occurred.</p> */}
+     
       <p className={styles.errorText}>
         <i>{error.response.statusText || error.message}</i>
       </p>

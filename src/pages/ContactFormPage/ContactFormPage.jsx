@@ -1,5 +1,6 @@
 import styles from "./ContactFormPage.module.css";
 import { useId } from "react";
+import { Report } from "notiflix/build/notiflix-report-aio";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { sendContactForm } from "../../services/requests";
 import Button from "@mui/material/Button";
@@ -16,14 +17,14 @@ const FeedbackSchema = Yup.object({
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  email: Yup.string().email("Must be a valid email!").required("Required"),
+  email: Yup.string()
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Must be a valid email!")
+    .required("Required"),
   message: Yup.string()
     .min(3, "Too short")
     .max(500, "Too long")
     .required("Required"),
-  subject: Yup.string()
-    // .oneOf(["adopt", "forAdopt", "other"])
-    .required("Required"),
+  subject: Yup.string().required("Required"),
 });
 const ContactFormPage = () => {
   const nameFieldId = useId();
@@ -31,26 +32,30 @@ const ContactFormPage = () => {
   const msgFieldId = useId();
   const subjectFieldId = useId();
 
-  const handleSubmit = (values, actions) => {
-    sendContactForm(values);
-    actions.resetForm();
+  const handleSubmit = async (values, actions) => {
+    try {
+      const res = await sendContactForm(values);
+      if (res.code === 201) {
+        Report.success("Success", "Thank you for your message", "Okay", {
+          messageFontSize: "1.1rem",
+          titleFontSize: "1.1rem",
+        });
+      }
+      actions.resetForm();
+    } catch (error) {
+      if (error.response.status === 500) {
+        Report.failure("Failure", error.response.data.message, "Okay", {
+          messageFontSize: "1.1rem",
+          titleFontSize: "1.1rem",
+        });
+      }
+    }
   };
   return (
     <div className={styles.pageWrp}>
-      {" "}
       <div className={styles.formSection}>
         <div className={styles.formContainer}>
           <Formik
-            // onSubmit={(values, { setSubmitting }) => {
-            //   alert(JSON.stringify(values, null, 2));
-            //   setSubmitting(false);
-            // }}
-            // initialValues={{
-            //   username: "",
-            //   email: "",
-            //   message: "",
-            //   subject: "good",
-            // }}
             initialValues={initialValues}
             onSubmit={handleSubmit}
             validationSchema={FeedbackSchema}
@@ -73,8 +78,8 @@ const ContactFormPage = () => {
                 name="subject"
                 id={subjectFieldId}
               >
-                <option value="adopt">I want to adopt a pet</option>
-                <option value="forAdopt">I have a pet for adoption</option>
+                <option value="I want adopt">I want to adopt a pet</option>
+                <option value="Pet for Adopt">I have a pet for adoption</option>
                 <option value="other">Other</option>
               </Field>
               <ErrorMessage
@@ -137,5 +142,3 @@ const ContactFormPage = () => {
 };
 
 export default ContactFormPage;
-
-//------------------

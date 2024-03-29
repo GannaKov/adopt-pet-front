@@ -4,15 +4,10 @@ import axios from "axios";
 const BASEURL = import.meta.env.VITE_BASE_URL;
 
 const instance = axios.create({ baseURL: BASEURL });
-//sm chmng
-// export async function homeLoader() {
-//   const categories = await getCategories();
-//   console.log("categor in loader", categories);
-//   return categories;
-// }
 
 export const getCategoriesLoder = async () => {
   const { data } = await instance.get("/animals");
+
   return data.data;
 };
 
@@ -65,6 +60,6 @@ export const getSinglePetLoader = async ({ params }) => {
 
 export const sendContactForm = async (values) => {
   const { data } = await instance.post(`/contact-form`, values);
-  console.log("data from backend", data);
+
   return data;
 };

@@ -2,7 +2,7 @@
   display: grid;
 }
 .headerWrp {
-  /* background-color: rgba(251, 244, 247, 0.976); */
+ 
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(128, 128, 128, 0.236);

@@ -79,16 +79,11 @@ const SinglePetPage = () => {
                   height: "280",
                 },
                 width: "100%",
-                //   [theme.breakpoints.down("sm")]: {
-                //     width: "100%",
-                //   },
-
+               
                 [theme.breakpoints.up("md")]: {
                   width: 800,
                 },
-                // [theme.breakpoints.up("lg")]: {
-                //   width: 500,
-                // },
+              
               }}
               image={pet.url}
               title={pet.name}

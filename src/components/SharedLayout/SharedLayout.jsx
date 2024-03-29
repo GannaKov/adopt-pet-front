@@ -49,9 +49,9 @@ const SharedLayout = () => {
           </ul>
         </nav>
       </header>
-      {/* <div className={styles.pageWrp}> */}
+    
       <Outlet />
-      {/* </div> */}
+    
     </div>
   );
 };

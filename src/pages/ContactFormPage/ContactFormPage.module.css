@@ -1,5 +1,5 @@
 .pageWrp {
-  /* margin: 0 auto; */
+ 
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
@@ -22,7 +22,7 @@
 @media screen and (min-width: 600px) {
   .formContainer {
     width: 550px;
-    /* padding: 3rem; */
+   
   }
 }
 @media screen and (min-width: 900px) {
